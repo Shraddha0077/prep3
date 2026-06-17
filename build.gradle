@@ -1,5 +1,6 @@
 plugins {
     id 'application'
+    id 'java'
 }
 
 repositories {
@@ -21,4 +22,18 @@ tasks.register('prepareDocs', Copy) {
         include '**/*.html', '**/*.css', '**/*.js', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg'
     }
     into("$rootDir/docs")
+}
+        <dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.31.0'
+    testImplementation 'org.testng:testng:7.11.0'
+}
+test{
+    useTestNG()
+}
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.example.Main'
+        )
+    }
 }
